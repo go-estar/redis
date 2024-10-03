@@ -12,10 +12,10 @@ github.com/fsnotify/fsnotify v1.7.0 h1:8JEhPFa5W2WU7YfeZzPNqzMP6Lwt7L2715Ggo0nos
 github.com/fsnotify/fsnotify v1.7.0/go.mod h1:40Bi/Hjc2AVfZrqy+aj+yEI+/bRxZnMJyTJwOpGvigM=
 github.com/go-estar/config v1.0.0 h1:TCTN7EQSsWvHk4/iU2Gi3Y8huUzdNX0d09N0Fz7ysaA=
 github.com/go-estar/config v1.0.0/go.mod h1:fB/5i8csMx/LpqkdZ99tw3a79bcd7Ok9LS5MuFh1V78=
-github.com/go-estar/local-time v1.0.0 h1:Qji4i9Uhu2VVUn1w1hJuC7oeMpLF8ED0D+PdmtaOV0c=
-github.com/go-estar/local-time v1.0.0/go.mod h1:dGYIhiwo0ekqQF2G1CAYXdeSGBonEx/iCF2+Z7sVsDI=
-github.com/go-estar/snowflake-id v1.0.0 h1:sMU5ycXr0BM/rURGGxSmryQ/Qy7eoRwuZ9MudgZIcXA=
-github.com/go-estar/snowflake-id v1.0.0/go.mod h1:WlUpTLS8nMQQ91+QwqJLyqUUawxquLHYivGVCiR9Iqs=
+github.com/go-estar/id-generator v1.0.0 h1:QDTzYQNfjw7TcaImn0lSKJW0Y+/BK86uZbcfYvS3lCI=
+github.com/go-estar/id-generator v1.0.0/go.mod h1:nkO6ZG14u/dl1EUoZXULOXR9Cd/L6sSA87DrK/hgwQM=
+github.com/go-estar/local-time v1.0.1 h1:8sry7rLCDBuppRw0BVyjDhZBQ8dbcEnFjU7ZARUDlHc=
+github.com/go-estar/local-time v1.0.1/go.mod h1:dGYIhiwo0ekqQF2G1CAYXdeSGBonEx/iCF2+Z7sVsDI=
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
 github.com/hashicorp/hcl v1.0.0 h1:0Anlzjpi4vEasTeNFn2mLJgTSwt0+6sfsiTG8qcWGx4=
 github.com/hashicorp/hcl v1.0.0/go.mod h1:E5yfLk+7swimpb2L/Alb/PJmXilQ/rhwaUYs4T20WEQ=

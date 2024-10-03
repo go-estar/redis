@@ -3,9 +3,9 @@ package redis
 import (
 	"context"
 	"encoding/json"
+	"github.com/go-estar/id-generator/snowflake"
 	"github.com/go-estar/local-time"
 	"github.com/go-estar/redis/script"
-	"github.com/go-estar/snowflake-id"
 	"github.com/redis/go-redis/v9"
 	"testing"
 	"time"
@@ -47,10 +47,10 @@ func TestQuotaApply(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	var orderIdWorker = snowflakeId.New(0)
+	var orderIdWorker = snowflake.New(0)
 	for i := 0; i < 100; i++ {
 		go func(i int) {
-			orderId, _ := orderIdWorker.NextStringId()
+			orderId := orderIdWorker.String()
 			result, err := script.QuotaApply.Run(context.Background(), client, []string{"test-quota-apply", "test-quota"}, orderId, string(keyFieldData)).Result()
 			if err != nil {
 				t.Log(orderId, "failed", err)
@@ -85,11 +85,11 @@ func TestCalculateApply(t *testing.T) {
 	var (
 		weightsStr = `[["12-12:E",14,1,10],["12-12:E",15,1,1]]`
 	)
-	var orderIdWorker = snowflakeId.New(0)
+	var orderIdWorker = snowflake.New(0)
 	for i := 0; i < 10; i++ {
 		go func(i int) {
 			var seed = localTime.Now().UnixNano()
-			orderId, _ := orderIdWorker.NextStringId()
+			orderId := orderIdWorker.String()
 			result, err := script.CalculateApply.Run(context.Background(), client, []string{"promotion-random-apply", "promotion-random"}, orderId, weightsStr, seed).Result()
 			if err != nil {
 				t.Log(orderId, "failed", err)
@@ -112,10 +112,10 @@ func TestCouponApply(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	var orderIdWorker = snowflakeId.New(0)
+	var orderIdWorker = snowflake.New(0)
 	for i := 0; i < 10; i++ {
 		go func(i int) {
-			orderId, _ := orderIdWorker.NextStringId()
+			orderId := orderIdWorker.String()
 			result, err := script.CouponApply.Run(context.Background(), client, []string{"test-coupon-apply", "test-coupon"}, orderId, string(keyFieldData)).Result()
 			if err != nil {
 				t.Log(orderId, "failed", err)

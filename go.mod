@@ -4,8 +4,8 @@ go 1.19
 
 require (
 	github.com/go-estar/config v1.0.0
-	github.com/go-estar/local-time v1.0.0
-	github.com/go-estar/snowflake-id v1.0.0
+	github.com/go-estar/id-generator v1.0.0
+	github.com/go-estar/local-time v1.0.1
 	github.com/redis/go-redis/v9 v9.6.1
 )
 
