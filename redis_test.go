@@ -168,3 +168,39 @@ func TestBatchUnlock(t *testing.T) {
 	result := client.BatchUnlock(context.Background(), []string{"test-1", "test-2", "test-3", "test-4", "test-5"})
 	t.Log("result", result)
 }
+
+func TestBalanceCharge(t *testing.T) {
+	result, err := script.BalanceCharge.Run(context.Background(), client, []string{"test-balance", "test-balance-history"},
+		1, localTime.Now().UnixMillisecond(), 1000).Float64()
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log("result", result)
+}
+
+func TestBalanceChargeRevoke(t *testing.T) {
+	result, err := script.BalanceChargeRevoke.Run(context.Background(), client, []string{"test-balance", "test-balance-history"},
+		1, "1730698656192", 1000).Float64()
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log("result", result)
+}
+
+func TestBalanceConsume(t *testing.T) {
+	result, err := script.BalanceConsume.Run(context.Background(), client, []string{"test-balance", "test-balance-history"},
+		1, localTime.Now().UnixMillisecond(), -980).Float64()
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log("result", result)
+}
+
+func TestBalanceConsumeRevoke(t *testing.T) {
+	result, err := script.BalanceConsumeRevoke.Run(context.Background(), client, []string{"test-balance", "test-balance-history"},
+		1, "1730698810968", -980).Float64()
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log("result", result)
+}
