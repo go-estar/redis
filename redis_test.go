@@ -180,7 +180,7 @@ func TestBalanceCharge(t *testing.T) {
 
 func TestBalanceChargeRevoke(t *testing.T) {
 	result, err := script.BalanceChargeRevoke.Run(context.Background(), client, []string{"test-balance", "test-balance-history"},
-		1, "1730698656192", 1000).Float64()
+		1, "1730794418521", 1000).Float64()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -189,7 +189,7 @@ func TestBalanceChargeRevoke(t *testing.T) {
 
 func TestBalanceConsume(t *testing.T) {
 	result, err := script.BalanceConsume.Run(context.Background(), client, []string{"test-balance", "test-balance-history"},
-		1, localTime.Now().UnixMillisecond(), -980).Float64()
+		1, localTime.Now().UnixMillisecond(), -20).Float64()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -198,7 +198,7 @@ func TestBalanceConsume(t *testing.T) {
 
 func TestBalanceConsumeRevoke(t *testing.T) {
 	result, err := script.BalanceConsumeRevoke.Run(context.Background(), client, []string{"test-balance", "test-balance-history"},
-		1, "1730698810968", -980).Float64()
+		1, "1730794424425", -20).Float64()
 	if err != nil {
 		t.Fatal(err)
 	}

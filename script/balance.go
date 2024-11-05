@@ -56,7 +56,7 @@ if total + value < 0 then
 	return redis.error_reply('not enough:' .. total)
 end
 
-if (redis.call('hsetnx', KEYS[2], ARGV[2], ARGV[3]) == 0) then
+if (redis.call('hsetnx', KEYS[2], ARGV[2], cjson.encode({ARGV[1],ARGV[3]})) == 0) then
     return redis.error_reply("exists:" ..  ARGV[2])
 end
 
@@ -98,7 +98,7 @@ if value <= 0 then
 	return redis.error_reply("number must be positive")
 end
 
-if (redis.call('hsetnx', KEYS[2], ARGV[2], ARGV[3]) == 0) then
+if (redis.call('hsetnx', KEYS[2], ARGV[2], cjson.encode({ARGV[1],ARGV[3]})) == 0) then
     return redis.error_reply("exists:" ..  ARGV[2])
 end
 
